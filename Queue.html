@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue</title>
+</head>
+<body>
+    <h1>Queue</h1>
+    <input type="number" id="itemInput" placeholder="Enter item to push">
+    <button onclick="pushItem()">Push</button>
+    <button onclick="popItem()">Pop</button>
+
+    <h3>Queue:</h3>
+    <p id="queueDisplay"></p>
+
+    <script>
+        var arr = [1, 2, 3, 4, 5];
+        
+        function updateQueueDisplay() {
+            document.getElementById("queueDisplay").innerText = arr.join(', ');
+        }
+
+        function add(arr, item) {
+            arr.push(item);
+        }
+
+        function remove(arr) {
+            arr.shift();
+        }
+
+        function pushItem() {
+            var item = document.getElementById("itemInput").value;
+            if(item) {
+                add(arr, parseInt(item));
+                updateQueueDisplay();
+                document.getElementById("itemInput").value = ''; 
+            }
+        }
+
+        function popItem() {
+            if(arr.length > 0) {
+                remove(arr);
+                updateQueueDisplay();
+            }
+            else{
+                alert("no elements in queue to remove");
+            }
+        }
+
+       
+        updateQueueDisplay();
+    </script>
+</body>
+</html>
